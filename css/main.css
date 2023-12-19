@@ -10,6 +10,7 @@ body{
 a{
 	color: #333;
 	text-decoration: none;
+	cursor: pointer;
 }
 .mask-window{
 	position: fixed;
@@ -30,7 +31,7 @@ a{
 	border-radius: 3px;
 	position: relative;
 	padding: 30px 10px 25px 10px ;
-	animation: down 1s ease-in-out;
+	animation: down 2s ease-in-out;
 	text-align: center;
 }
 .wrap .mask{
@@ -65,19 +66,31 @@ a{
 	display: flex;
 	justify-content: space-around;
 }
-.wrap .callMe a{
-	opacity: 0.9;
-	font-size: 22px;
-}
 .wrap .btn{
 	font-size: 12px;
 	border: 1px solid #333;
 	border-radius: 3px;
 	padding: 3px 8px; 
-	margin: 10px 2px 0 2px;
+	margin: 30px 2px 0 2px;
 	display: inline-block;
 	opacity: .9;
 	transition: all .5s;
+}
+.callMe a{
+	width: 30px;
+	height: 30px;
+	background-size: 100%;
+	margin-top: 10px;
+	opacity: 0.9;
+}
+.callMe .qq{
+	background-image: url(../img/qq.png);
+}
+.callMe .mail{
+	background-image: url(../img/mail.png);
+}
+.callMe .vx{
+	background-image: url(../img/vx.png);
 }
 .wrap .btn:hover{
 	background: #333;
@@ -85,7 +98,6 @@ a{
 	opacity: .8;
 	cursor: pointer;
 }
-
 @media screen and (max-width: 420px){
 	.wrap{
 		width: 80%;
